@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit
+        bootstrap="vendor/autoload.php"
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnFailure="false"
+>
+
+    <php>
+        <const name="DB_PORT" value="3306" />
+        <const name="DB_USER" value="root" />
+        <const name="DB_PASSWORD" value="" />
+        <const name="DB_DBNAME" value="quick_pdo" />
+        <const name="DB_HOST" value="localhost" />
+        <const name="DB_CHARACTER_ENCODING" value="utf8mb4" />
+    </php>
+
+    <testsuites>
+        <testsuite name="Tests">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

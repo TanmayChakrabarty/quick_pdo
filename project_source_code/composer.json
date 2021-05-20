@@ -1,0 +1,29 @@
+{
+  "name": "tanmay/quick_pdo",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tanmay Chakrabarty",
+      "email": "cse.tanmay@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7",
+    "ext-pdo": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "tanmay\\QuickPdo\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tanmay\\QuickPdoTests\\": "tests"
+    }
+  },
+  "description": "PDO"
+}
