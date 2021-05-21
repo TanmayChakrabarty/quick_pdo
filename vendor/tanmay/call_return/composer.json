@@ -1,0 +1,29 @@
+{
+  "name": "tanmay/call_return",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tanmay Chakrabarty",
+      "email": "cse.tanmay@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "ext-pdo": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "tanmay\\CallReturn\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tanmay\\UnitTests\\": "tests"
+    }
+  },
+  "description": "Call Return "
+}

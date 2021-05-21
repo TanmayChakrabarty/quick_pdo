@@ -4,8 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6169da412bf4e80fa74d8679b18662d5",
-    "packages": [],
+    "content-hash": "246d3b81ce7deb4c912aa50e8c241c3e",
+    "packages": [
+        {
+            "name": "tanmay/call_return",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TanmayChakrabarty/CallReturn.git",
+                "reference": "2cffaee3def19b75f830b2261fbc7e8678aae336"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TanmayChakrabarty/CallReturn/zipball/2cffaee3def19b75f830b2261fbc7e8678aae336",
+                "reference": "2cffaee3def19b75f830b2261fbc7e8678aae336",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "tanmay\\CallReturn\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tanmay Chakrabarty",
+                    "email": "cse.tanmay@gmail.com"
+                }
+            ],
+            "description": "Call Return ",
+            "support": {
+                "issues": "https://github.com/TanmayChakrabarty/CallReturn/issues",
+                "source": "https://github.com/TanmayChakrabarty/CallReturn/tree/v1.0.0"
+            },
+            "time": "2021-05-21T20:24:55+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
@@ -1726,9 +1771,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7",
+        "php": "^7.4",
         "ext-pdo": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

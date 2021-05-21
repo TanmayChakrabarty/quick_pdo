@@ -16,7 +16,8 @@ class ComposerStaticInit1658d34f6f3ad15423ea2b022e309d82
         't' => 
         array (
             'tanmay\\QuickPdo\\' => 16,
-            'tanmay\\QuickPdoTests\\' => 21,
+            'tanmay\\QuickPdoIntegrationTests\\' => 32,
+            'tanmay\\CallReturn\\' => 18,
         ),
         'p' => 
         array (
@@ -46,9 +47,13 @@ class ComposerStaticInit1658d34f6f3ad15423ea2b022e309d82
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'tanmay\\QuickPdoTests\\' => 
+        'tanmay\\QuickPdoIntegrationTests\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/tests/unit',
+            0 => __DIR__ . '/../..' . '/tests',
+        ),
+        'tanmay\\CallReturn\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tanmay/call_return/src',
         ),
         'phpDocumentor\\Reflection\\' => 
         array (
@@ -79,6 +84,7 @@ class ComposerStaticInit1658d34f6f3ad15423ea2b022e309d82
     );
 
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/AssertionFailedError.php',

@@ -7,7 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'tanmay\\QuickPdo\\' => array($baseDir . '/src'),
-    'tanmay\\QuickPdoTests\\' => array($baseDir . '/tests/unit'),
+    'tanmay\\QuickPdoIntegrationTests\\' => array($baseDir . '/tests'),
+    'tanmay\\CallReturn\\' => array($vendorDir . '/tanmay/call_return/src'),
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
