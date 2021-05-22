@@ -32,7 +32,7 @@ class QuickPdoIntegrationTest extends TestCase
     {
         self::$connection = new QuickPdo(DB_USER, DB_PASSWORD, DB_DBNAME, DB_HOST, DB_PORT, DB_CHARACTER_ENCODING);
         self::$connection->connect();
-        self::$connection->getConnection()->prepare('TRUNCATE TABLE users')->execute();
+        self::$connection->getPDO()->prepare('TRUNCATE TABLE users')->execute();
         self::$connection->closeConnection();
 
         self::$connection = new QuickPdo(DB_USER, DB_PASSWORD, DB_DBNAME, DB_HOST, DB_PORT, DB_CHARACTER_ENCODING);

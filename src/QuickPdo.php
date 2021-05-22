@@ -60,7 +60,7 @@ class QuickPdo
         return true;
     }
 
-    public function getConnection()
+    public function getPDO()
     {
         return $this->connection;
     }
