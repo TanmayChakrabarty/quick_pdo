@@ -95,6 +95,18 @@ class QuickPdoIntegrationTest extends TestCase
             self::assertEqualsCanonicalizing($original_data, $data);
         }
     }
+    public function testSelectAssocSingle()
+    {
+        $ret = self::$connection->selectAssoc('SELECT * FROM users WHERE pk_user_id = :user_id', ['user_id' => 2], true);
+        self::assertTrue($ret->is_success());
+        if($ret->is_success()){
+            $data = $ret->get_data();
+            //$data = $data ? $data[0] : [];
+            $original_data = self::$dataSet[1];
+
+            self::assertEqualsCanonicalizing($original_data, $data);
+        }
+    }
 
     public function testSelectNum()
     {
@@ -103,6 +115,19 @@ class QuickPdoIntegrationTest extends TestCase
         if($ret->is_success()){
             $data = $ret->get_data();
             $data = $data ? $data[0] : [];
+            $original_data = array_values(self::$dataSet[1]);
+
+            self::assertEqualsCanonicalizing($original_data, $data);
+        }
+    }
+
+    public function testSelectNumSingle()
+    {
+        $ret = self::$connection->selectNum('SELECT * FROM users WHERE pk_user_id = :user_id', ['user_id' => 2], true);
+        self::assertTrue($ret->is_success());
+        if($ret->is_success()){
+            $data = $ret->get_data();
+            //$data = $data ? $data[0] : [];
             $original_data = array_values(self::$dataSet[1]);
 
             self::assertEqualsCanonicalizing($original_data, $data);
@@ -122,6 +147,19 @@ class QuickPdoIntegrationTest extends TestCase
         }
     }
 
+    public function testSelectObjectSingle()
+    {
+        $ret = self::$connection->selectObject('SELECT * FROM users WHERE pk_user_id = :user_id', ['user_id' => 2], true);
+        self::assertTrue($ret->is_success());
+        if($ret->is_success()){
+            $data = $ret->get_data();
+            //$data = $data ? $data[0] : [];
+            $original_data = (object)(self::$dataSet[1]);
+
+            self::assertEquals($original_data, $data);
+        }
+    }
+
     public function testSelectColumn()
     {
         $ret = self::$connection->selectColumn('SELECT user_name, user_gender FROM users WHERE pk_user_id = :user_id', ['user_id' => 2]);
@@ -135,9 +173,38 @@ class QuickPdoIntegrationTest extends TestCase
         }
     }
 
+    public function testSelectColumnSingle()
+    {
+        $ret = self::$connection->selectColumn('SELECT user_name, user_gender FROM users WHERE pk_user_id = :user_id', ['user_id' => 2], true);
+        self::assertTrue($ret->is_success());
+        if($ret->is_success()){
+            $data = $ret->get_data();
+            //$data = $data ? $data[0] : [];
+            $original_data = self::$dataSet[1]['user_name'];
+
+            self::assertEquals($original_data, $data);
+        }
+    }
+
     public function testSelectKeyPair()
     {
-        $ret = self::$connection->selectKeyPair('SELECT user_name, user_gender FROM users WHERE pk_user_id = :user_id', ['user_id' => 2]);
+        $ret = self::$connection->selectKeyPair('SELECT user_name, user_gender FROM users ');
+        self::assertTrue($ret->is_success());
+        if($ret->is_success()){
+            $data = $ret->get_data();
+            $original_data = [
+                self::$dataSet[0]['user_name'] => self::$dataSet[0]['user_gender'],
+                self::$dataSet[1]['user_name'] => self::$dataSet[1]['user_gender'],
+                self::$dataSet[2]['user_name'] => self::$dataSet[2]['user_gender'],
+            ];
+
+            self::assertEquals($original_data, $data);
+        }
+    }
+
+    public function testSelectKeyPairSingle()
+    {
+        $ret = self::$connection->selectKeyPair('SELECT user_name, user_gender FROM users WHERE pk_user_id = :user_id', ['user_id' => 2], true);
         self::assertTrue($ret->is_success());
         if($ret->is_success()){
             $data = $ret->get_data();

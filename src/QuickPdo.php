@@ -104,26 +104,26 @@ class QuickPdo
         return $ret;
     }
 
-    private function select(string $fetch_mode, string $sql, array $replacers = [], string $class = '')
+    private function select(string $fetch_mode, string $sql, array $replacers = [], string $class = '', bool $single = false)
     {
         $ret = $this->query($sql, $replacers);
 
         if($ret->is_success()){
             switch ($fetch_mode){
                 case "assoc":
-                    $data = $ret->get_data()->fetchAll(PDO::FETCH_ASSOC);
+                    $data = $single ? $ret->get_data()->fetch(PDO::FETCH_ASSOC) : $ret->get_data()->fetchAll(PDO::FETCH_ASSOC);
                     break;
                 case "num":
-                    $data = $ret->get_data()->fetchAll(PDO::FETCH_NUM);
+                    $data = $single ? $ret->get_data()->fetch(PDO::FETCH_NUM) : $ret->get_data()->fetchAll(PDO::FETCH_NUM);
                     break;
                 case "object":
-                    $data = $ret->get_data()->fetchAll(PDO::FETCH_OBJ);
+                    $data = $single ? $ret->get_data()->fetch(PDO::FETCH_OBJ) : $ret->get_data()->fetchAll(PDO::FETCH_OBJ);
                     break;
                 case "column":
-                    $data = $ret->get_data()->fetchAll(PDO::FETCH_COLUMN);
+                    $data = $single ? $ret->get_data()->fetch(PDO::FETCH_COLUMN) : $ret->get_data()->fetchAll(PDO::FETCH_COLUMN);
                     break;
                 case "key_pair":
-                    $data = $ret->get_data()->fetchAll(PDO::FETCH_KEY_PAIR);
+                    $data = $single ? $ret->get_data()->fetch(PDO::FETCH_KEY_PAIR) : $ret->get_data()->fetchAll(PDO::FETCH_KEY_PAIR);
                     break;
                 case "unique_indexed":
                     $data = $ret->get_data()->fetchAll(PDO::FETCH_UNIQUE);
@@ -149,29 +149,29 @@ class QuickPdo
         return $ret;
     }
 
-    public function selectAssoc(string $sql, array $replacers = [])
+    public function selectAssoc(string $sql, array $replacers = [], bool $single = false)
     {
-        return $this->select('assoc', $sql, $replacers);
+        return $this->select('assoc', $sql, $replacers, '', $single);
     }
 
-    public function selectNum(string $sql, array $replacers = [])
+    public function selectNum(string $sql, array $replacers = [], bool $single = false)
     {
-        return $this->select('num', $sql, $replacers);
+        return $this->select('num', $sql, $replacers, '', $single);
     }
 
-    public function selectObject(string $sql, array $replacers = [])
+    public function selectObject(string $sql, array $replacers = [], bool $single = false)
     {
-        return $this->select('object', $sql, $replacers);
+        return $this->select('object', $sql, $replacers, '', $single);
     }
 
-    public function selectColumn(string $sql, array $replacers = [])
+    public function selectColumn(string $sql, array $replacers = [], bool $single = false)
     {
-        return $this->select('column', $sql, $replacers);
+        return $this->select('column', $sql, $replacers, '', $single);
     }
 
-    public function selectKeyPair(string $sql, array $replacers = [])
+    public function selectKeyPair(string $sql, array $replacers = [], bool $single = false)
     {
-        return $this->select('key_pair', $sql, $replacers);
+        return $this->select('key_pair', $sql, $replacers, '', $single);
     }
 
     public function selectUniqueIndexed(string $sql, array $replacers = [])
